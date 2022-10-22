@@ -15,25 +15,41 @@ button {
   cursor: pointer;
 }
 
-.wrapper {
+.wrapper,
+.animated--container {
   background-color: #282c34;
   color: #fff;
-  height: 100vh;
   padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+.wrapper {
+  height: 100vh;
+}
+.animation {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  z-index: 10;
+  top: -43%;
+  left: 50%;
 }
 .fact--container {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  z-index: 1;
   align-items: center;
   padding: 20px;
   border-radius: 10px;
   min-width: 300px;
-  width: 90%;
+  width: 70%;
   font-size: 16px;
   font-family: "Barlow Condensed";
   font-weight: 500;

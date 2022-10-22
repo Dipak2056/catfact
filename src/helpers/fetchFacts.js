@@ -7,9 +7,13 @@ const randomGenerator = (n) => {
 };
 
 const fetchFact = async () => {
-  return await fetch(API_ENDPOINT + randomGenerator(34))
-    .then((response) => response.json())
-    .then(({ data }) => data[randomGenerator(9)]);
+  try {
+    return await fetch(API_ENDPOINT + randomGenerator(34))
+      .then((response) => response.json())
+      .then(({ data }) => data[randomGenerator(9)]);
+  } catch (error) {
+    return "There is some error fetching data from server, please try again.";
+  }
 };
 
 export default fetchFact;
