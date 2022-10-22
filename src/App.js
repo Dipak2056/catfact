@@ -1,23 +1,10 @@
-import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import "./App.css";
 import Button from "./components/Buttons/Button";
 import FactContainer from "./components/Factcontainer/FactContainer";
-import fetchFact from "./helpers/fetchFacts";
 
 function App() {
-  const [facts, setFacts] = useState([{ fact: "Please wait...." }]);
-
-  const importData = async () => {
-    const newData = await fetchFact();
-    const allFacts = [...facts, newData];
-    setFacts(allFacts);
-  };
-  const handleOnClick = async () => {
-    await importData();
-  };
-  useEffect(() => {
-    importData();
-  }, []);
+  const { facts } = useSelector((state) => state.catFact);
 
   return (
     <div className="wrapper">
@@ -36,19 +23,19 @@ function App() {
             <div className="title">
               CAT FACT
               <div className="counter--number">
-                {facts.length - 1}
+                {facts.length}
                 <div className="hidden--text">
-                  You have seen {facts.length - 1} cat facts.
+                  You have seen {facts.length} cat facts.
                 </div>
               </div>
             </div>
             <hr />
           </div>
           <div className="container--main">
-            <FactContainer facts={facts} />
+            <FactContainer />
           </div>
           <div className="container--footer">
-            <Button handleOnClick={handleOnClick} />
+            <Button />
           </div>
         </div>
       </div>

@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchFactAction } from "../Factcontainer/factsAction";
 
-const Button = ({ handleOnClick }) => {
+const Button = () => {
+  const dispatch = useDispatch();
+
+  const handleOnClick = () => {
+    dispatch(fetchFactAction());
+  };
+  useEffect(() => {
+    dispatch(fetchFactAction());
+  }, [dispatch]);
   return (
     <div>
       <button onClick={handleOnClick}>
