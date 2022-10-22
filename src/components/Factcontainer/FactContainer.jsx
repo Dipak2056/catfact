@@ -1,12 +1,8 @@
 import React from "react";
 
-const FactContainer = () => {
-  return (
-    <div>
-      "This is the random fact generated about the cat" Lorem, ipsum. Lorem
-      ipsum dolor sit, amet consectetur adipisicing elit. Libero, illum?
-    </div>
-  );
+const FactContainer = ({ facts }) => {
+  const lastItem = facts.length - 1;
+  return <div>"{facts[lastItem].fact}"</div>;
 };
 
 export default FactContainer;

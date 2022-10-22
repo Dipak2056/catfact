@@ -1,10 +1,9 @@
 import React from "react";
-import fetchFact from "../../helpers/fetchFacts";
 
-const Button = () => {
+const Button = ({ handleOnClick }) => {
   return (
     <div>
-      <button onClick={fetchFact}>
+      <button onClick={handleOnClick}>
         <i className="fa-solid fa-arrows-rotate" /> Refresh
       </button>
     </div>
