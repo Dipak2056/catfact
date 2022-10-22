@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Button from "./components/Buttons/Button";
+import FactContainer from "./components/Factcontainer/FactContainer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <div className="fact--container">
+        <div className="container--header">
+          <div className="title">
+            CAT FACT
+            <div className="counter--number">
+              4<div className="hidden--text">You have seen 4 cat facts.</div>
+            </div>
+          </div>
+          <hr />
+        </div>
+        <div className="container--main">
+          <FactContainer />
+        </div>
+        <div className="container--footer">
+          <Button className="prev-btn" />
+        </div>
+      </div>
     </div>
   );
 }
