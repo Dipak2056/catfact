@@ -1,8 +1,13 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getCatsFact } from "./factSlice";
 
 const FactContainer = () => {
+  const dispatch = useDispatch();
   const { facts } = useSelector((state) => state.catFact);
+  useEffect(() => {
+    dispatch(getCatsFact());
+  }, [dispatch]);
   const lastItem = facts.length - 1;
   return <div>{facts[lastItem]}</div>;
 };

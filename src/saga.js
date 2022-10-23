@@ -1,24 +1,28 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import { setFacts } from "./components/Factcontainer/factSlice";
+import { setCatFacts } from "./components/Factcontainer/factSlice";
 
 const API_ENDPOINT = "https://catfact.ninja/facts?page=";
 const randomGenerator = (n) => {
   return Math.floor(Math.random() * n);
 };
 
-function* workGetCatsFetch() {
+function* catSaga() {
+  yield takeEvery("catFact/getCatsFact", watchCatsFetch);
+}
+function* watchCatsFetch() {
   try {
-    const catsfacts = yield call(() =>
+    const catsFacts = yield call(() =>
       fetch(API_ENDPOINT + randomGenerator(34))
     );
-    const formattedCatsFacts = yield catsfacts.json();
-    yield put(setFacts(formattedCatsFacts.data[randomGenerator(10)].fact));
+    const formattedCatsFacts = yield catsFacts.json();
+    if (formattedCatsFacts) {
+      yield put(setCatFacts(formattedCatsFacts.data[randomGenerator(10)].fact));
+    } else {
+      yield put();
+    }
   } catch (error) {
     console.log(error);
   }
-}
-function* catSaga() {
-  yield takeEvery("catFact/setFacts", workGetCatsFetch);
 }
 
 export default catSaga;
