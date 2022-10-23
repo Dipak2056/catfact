@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
 import "./App.css";
 import Button from "./components/Buttons/Button";
 import FactContainer from "./components/Factcontainer/FactContainer";
+import { useSelector } from "react-redux";
 
 function App() {
   const { facts } = useSelector((state) => state.catFact);

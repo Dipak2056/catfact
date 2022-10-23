@@ -6,8 +6,8 @@ const factsSlice = createSlice({
   name: "catFact",
   initialState,
   reducers: {
-    setFacts: (state, { payload }) => {
-      state.facts = [...state.facts, payload];
+    setFacts: (state, action) => {
+      state.facts = [...state.facts, action.payload];
     },
   },
 });

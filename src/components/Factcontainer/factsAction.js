@@ -1,7 +1,7 @@
-import { setFacts } from "./factSlice";
-import fetchFact from "../../helpers/fetchFacts";
+// import { setFacts } from "./factSlice";
+// import fetchFact from "../../helpers/fetchFacts";
 
-export const fetchFactAction = () => async (dispatch) => {
-  const { fact } = await fetchFact();
-  dispatch(setFacts(fact));
-};
+// export const fetchFactAction = () => async (dispatch) => {
+//   const { fact } = await fetchFact();
+//   dispatch(setFacts(fact));
+// };
