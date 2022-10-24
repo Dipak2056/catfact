@@ -83,7 +83,7 @@ button {
   position: absolute;
   top: 0;
   width: 80%;
-  opacity: 0;
+  display: none;
   font-size: 0.8em;
 }
 .counter--number:hover {
@@ -98,11 +98,8 @@ button {
   width: 200px;
   border-radius: 15px;
   background-color: #aad742;
-  display: block;
-  opacity: 1;
   transition: all 0.5s ease-in;
   display: block;
-  top: 0;
 }
 
 .container--footer {

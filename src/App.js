@@ -3,13 +3,22 @@ import Button from "./components/Buttons/Button";
 import FactContainer from "./components/Factcontainer/FactContainer";
 import { useSelector } from "react-redux";
 
+import store from "./store";
+import { Provider } from "react-redux";
+const AppWrapper = () => {
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+};
 function App() {
   const { facts } = useSelector((state) => state.catFact);
 
   return (
     <div className="wrapper">
       <div className="animated--container">
-        <div className="animation">
+        <div className="animation" data-testid="catAnimation">
           <lottie-player
             src="https://assets7.lottiefiles.com/packages/lf20_8y3kzptg.json"
             background="transparent"
@@ -22,7 +31,7 @@ function App() {
           <div className="container--header">
             <div className="title">
               CAT FACT
-              <div className="counter--number">
+              <div className="counter--number" data-testid="counterNumber">
                 {facts.length}
                 <div className="hidden--text">
                   You have seen {facts.length} cat facts.
@@ -43,4 +52,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppWrapper;

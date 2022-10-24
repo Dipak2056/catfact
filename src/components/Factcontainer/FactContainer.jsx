@@ -9,7 +9,7 @@ const FactContainer = () => {
     dispatch(getCatsFact());
   }, [dispatch]);
   const lastItem = facts.length - 1;
-  return <div>{facts[lastItem]}</div>;
+  return <div data-testId="factContainer">{facts[lastItem]}</div>;
 };
 
 export default FactContainer;
